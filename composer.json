@@ -1,0 +1,15 @@
+{
+    "name": "fang/phpmvc",
+    "authors": [
+        {
+            "name": "r567tw",
+            "email": "r567tw@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\":"./"
+        }
+    },
+    "require": {}
+}
