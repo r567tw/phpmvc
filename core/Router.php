@@ -7,10 +7,12 @@ class Router
 
     protected array $routes = [];
     public Request $request;
+    public Response $response;
 
     public function __construct()
     {
         $this->request = new Request();
+        $this->response = new Response();
     }
 
 
@@ -26,9 +28,10 @@ class Router
 
         $call = $this->routes[$method][$path] ?? false;
         if ($call === false){
-            echo '404 Not Found';
-            exit;
+            $this->response->setStatusCode(404);
+            return 'Not Found';
         }
-        echo call_user_func($call);
+        
+        return call_user_func($call);
     }
 }
