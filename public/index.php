@@ -1,16 +1,17 @@
 <?php
 
 require_once __DIR__."/../vendor/autoload.php";
+
+use app\controllers\MainController;
 use app\core\Application;
 
 $app = new \app\core\Application();
 
-$app->router->get('/',function(){
-    return "hello my framework";
-});
+$app->router->get('/','home');
 
-$app->router->get('/user', function () {
-    return "hello user router";
-});
+$app->router->get('/hello', 'hello');
+
+$app->router->post('/hello', [MainController::class, 'handle']);
+
 
 $app->run();
