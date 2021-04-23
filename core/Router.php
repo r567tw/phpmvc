@@ -44,19 +44,21 @@ class Router
         return call_user_func($callback);
     }
 
-    public function renderView($view)
+    public function renderView($view,$params = [])
     {
         $layout = $this->layoutContent();
-        $content = $this->renderOnlyView($view);
+        $content = $this->renderOnlyView($view,$params);
         return str_replace("{{ content }}",$content,$layout);
     }
 
-    public function renderOnlyView($view)
+    public function renderOnlyView($view,$params)
     {
+        foreach ($params as $key => $param) {
+            $$key = $param;
+        }
         ob_start();
         include_once Application::$rootPath . "/views/{$view}.php";
         return ob_get_clean();
-
     }
 
     public function layoutContent()

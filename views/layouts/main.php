@@ -8,7 +8,7 @@
 </head>
 <body>
     <a href="/">HOME</a>
-    <a href="/hello">Hello</a>
+    <a href="/contact">Hello</a>
     {{ content }}
 </body>
 </html>

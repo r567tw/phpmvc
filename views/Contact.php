@@ -1,6 +1,6 @@
 <h1>Hello</h1>
 
-<form action="/hello" method="post">
+<form action="/contact" method="post">
     <label for="">name</label>
     <input type="text" name="name">
     <br/>

@@ -7,11 +7,11 @@ use app\core\Application;
 
 $app = new \app\core\Application();
 
-$app->router->get('/','home');
+$app->router->get('/',[MainController::class,'home']);
 
-$app->router->get('/hello', 'hello');
+$app->router->get('/contact', [MainController::class, 'contact']);
 
-$app->router->post('/hello', [MainController::class, 'handle']);
+$app->router->post('/contact', [MainController::class, 'handle']);
 
 
 $app->run();
