@@ -1,10 +1,13 @@
 <h1>Hello</h1>
 
 <form action="/contact" method="post">
-    <label for="">name</label>
-    <input type="text" name="name">
-    <br/>
-    <label for="">message</label>
-    <textarea name="message" id="" cols="30" rows="10"></textarea>
-    <input type="submit" value="submit">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name">
+    </div>
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <input type="input" class="form-control" name="message" id="message">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

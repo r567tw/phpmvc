@@ -2,24 +2,30 @@
 namespace app\controllers;
 
 use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
 
-class MainController
+class MainController extends Controller
 {
 
-    public static function handle()
+    public function handle(Request $request)
     {
-        return 'handle post data';
+        $body = Application::$app->request->getBody();
+        return $this->render('Result',[
+            'name' => $body['name'],
+            'message' => $body['message']
+        ]);
     }
 
-    public static function contact()
+    public function contact()
     {
-        return Application::$app->router->renderView('Contact');
+        return $this->render('Contact');
     }
 
-    public static function home()
+    public function home()
     {
-        return Application::$app->router->renderView('Home',[
-            'name' => 'Jimmy'
+        return $this->render('Home', [
+            'name' => 'Jimmy (From Controller)'
         ]);
     }
 }

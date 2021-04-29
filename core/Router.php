@@ -40,8 +40,11 @@ class Router
             $this->response->setStatusCode(200);
             return $this->renderView($callback);
         }
+        if (is_array($callback)) {
+            $callback[0] = new $callback[0]();
+        }
         $this->response->setStatusCode(404);
-        return call_user_func($callback);
+        return call_user_func($callback, $this->request);
     }
 
     public function renderView($view,$params = [])
