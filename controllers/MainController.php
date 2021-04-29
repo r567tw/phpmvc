@@ -10,7 +10,7 @@ class MainController extends Controller
 
     public function handle(Request $request)
     {
-        $body = Application::$app->request->getBody();
+        $body = Application::$app->request->body();
         return $this->render('Result',[
             'name' => $body['name'],
             'message' => $body['message']
