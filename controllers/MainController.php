@@ -11,7 +11,7 @@ class MainController extends Controller
     public function handle(Request $request)
     {
         $body = Application::$app->request->body();
-        return $this->render('Result',[
+        return $this->render('result',[
             'name' => $body['name'],
             'message' => $body['message']
         ]);
@@ -19,12 +19,12 @@ class MainController extends Controller
 
     public function contact()
     {
-        return $this->render('Contact');
+        return $this->render('contact');
     }
 
     public function home()
     {
-        return $this->render('Home', [
+        return $this->render('home', [
             'name' => 'Jimmy (From Controller)'
         ]);
     }

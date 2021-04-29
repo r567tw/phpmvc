@@ -26,7 +26,7 @@ class Request
 
     public function isPost()
     {
-        return $this->method() === 'POST'
+        return $this->method() === 'POST';
     }
 
     public function body()
