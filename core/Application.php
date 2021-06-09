@@ -10,14 +10,16 @@ class Application
     public Request $request;
     public Response $response;
     public Controller $controller;
+    public Database $db;
 
-    public function __construct()
+    public function __construct($rootPath,array $config)
     {
-        self::$rootPath = dirname(__DIR__);
+        self::$rootPath = $rootPath;
         self::$app = $this;
         $this->router = new Router();
         $this->request = new Request();
         $this->response = new Response();
+        $this->db = new Database($config['db']);
     }
 
     public function run()
