@@ -23,10 +23,10 @@
                 </ul>
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <?php if (\app\core\Application::$app->user) : ?>
-                            <a class="nav-link" href="/logout">Logout</a>
-                        <?php else: ?>
+                        <?php if (\app\core\Application::isGuest()) : ?>
                             <a class="nav-link" href="/login">Login</a>
+                        <?php else: ?>
+                            <a class="nav-link" href="/logout">Logout</a>
                         <?php endif ?>
                     </li>
                     <li class="nav-item">
@@ -37,7 +37,6 @@
         </div>
     </nav>
     <div class="container">
-
         {{ content }}
     </div>
 </body>

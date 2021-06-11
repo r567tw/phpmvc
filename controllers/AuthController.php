@@ -21,7 +21,7 @@ class AuthController extends Controller
                 $response->redirect('/');
             }
         }
-
+        $this->setLayout('auth');
         return $this->render('login',[
             'model' => $user
         ]);
@@ -29,8 +29,8 @@ class AuthController extends Controller
 
     public function logout(Request $request, Response $response)
     {
+        Application::$app->logout();
         Application::$app->session->setFlash('success', '登出成功');
-        Application::$app->session->remove('user');
         $response->redirect('/');
     }
 

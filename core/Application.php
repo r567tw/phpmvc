@@ -30,9 +30,13 @@ class Application
         if ($primaryValue){
             $primaryKey = $this->userClass::primaryKey();
             $primaryValue =  $this->session->get('user');
-            $this->user = $this->userClass::findOne([$primaryKey=> $primaryValue]);
+            $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
         }
+    }
 
+    public static function isGuest()
+    {
+        return !self::$app->user;
     }
 
     public function run()
@@ -56,5 +60,10 @@ class Application
        $primaryKey = $this->user->primaryKey();
        $this->session->set('user', $user->$primaryKey);
        return true;
+    }
+
+    public function logout()
+    {
+        $this->session->remove('user');
     }
 }
