@@ -21,18 +21,25 @@
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <?php if (\app\core\Application::isGuest()) : ?>
+                <?php if (\app\core\Application::isGuest()) : ?>
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Register</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/login">Login</a>
-                        <?php else: ?>
+                        </li>
+                    </ul>
+                <?php else : ?>
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/logout">Logout</a>
-                        <?php endif ?>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                <?php endif ?>
             </div>
         </div>
     </nav>
