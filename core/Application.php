@@ -10,7 +10,7 @@ class Application
     public Request $request;
     public Response $response;
     public Session $session;
-    public Controller $controller;
+    public ?Controller $controller = null;
     public Database $db;
     public ?DBModel $user = null;
     public $userClass;

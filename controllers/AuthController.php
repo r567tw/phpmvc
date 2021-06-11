@@ -50,4 +50,9 @@ class AuthController extends Controller
             'model' => $user
         ]);
     }
+
+    public function profile()
+    {
+        return $this->render('profile');
+    }
 }

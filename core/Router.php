@@ -8,6 +8,7 @@ class Router
     protected array $routes = [];
     public Request $request;
     public Response $response;
+    protected const DEFAULT_LAYOUT = 'main';
 
     public function __construct()
     {
@@ -67,7 +68,10 @@ class Router
 
     public function layoutContent()
     {
-        $layout = Application::$app->controller->layout;
+        $layout = self::DEFAULT_LAYOUT;
+        if (isset(Application::$app->controller)){
+            $layout = Application::$app->controller->layout;
+        }
         ob_start();
         include_once Application::$rootPath . "/views/layouts/{$layout}.php";
         return ob_get_clean();
