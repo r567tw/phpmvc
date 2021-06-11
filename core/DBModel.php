@@ -4,8 +4,9 @@ namespace app\core;
 
 abstract class DBModel extends Model
 {
-    abstract public function table_name(): string;
+    abstract static public function table_name(): string;
     abstract public function attributes(): array;
+    abstract static public function primaryKey(): string;
 
     public function save()
     {
@@ -26,5 +27,19 @@ abstract class DBModel extends Model
     public static function prepare($sql)
     {
         return Application::$app->db->pdo->prepare($sql);
+    }
+
+    public static function findOne(array $where)
+    {
+        $tableName = static::table_name();
+        $attributes = array_keys($where);
+        $sql = implode("AND", array_map(fn ($attr) => "$attr = :$attr", $attributes));
+
+        $stat = self::prepare("SELECT * FROM {$tableName} where $sql");
+        foreach ($where as $key=>$value) {
+            $stat->bindValue(":$key", $value);
+        }
+        $stat->execute();
+        return $stat->fetchObject(static::class);
     }
 }

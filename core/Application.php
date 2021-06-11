@@ -12,6 +12,8 @@ class Application
     public Session $session;
     public Controller $controller;
     public Database $db;
+    public ?DBModel $user = null;
+    public $userClass;
 
     public function __construct($rootPath,array $config)
     {
@@ -22,6 +24,15 @@ class Application
         $this->response = new Response();
         $this->session = new Session();
         $this->db = new Database($config['db']);
+        $this->userClass = $config['userClass'];
+
+        $primaryValue =  $this->session->get('user');
+        if ($primaryValue){
+            $primaryKey = $this->userClass::primaryKey();
+            $primaryValue =  $this->session->get('user');
+            $this->user = $this->userClass::findOne([$primaryKey=> $primaryValue]);
+        }
+
     }
 
     public function run()
@@ -37,5 +48,13 @@ class Application
     public function setController(Controller $controller): void 
     {
         $this->controller = $controller;
+    }
+
+    public function login(DBModel $user)
+    {
+       $this->user = $user;
+       $primaryKey = $this->user->primaryKey();
+       $this->session->set('user', $user->$primaryKey);
+       return true;
     }
 }

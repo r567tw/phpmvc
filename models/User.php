@@ -12,10 +12,16 @@ class User extends DBModel
     public string $password='';
     public string $password_confirm='';
 
-    public function table_name(): string
+    public static function table_name(): string
     {
         return 'users';
     }
+
+    public static function primaryKey(): string
+    {
+        return 'id';
+    }
+
 
     public function attributes(): array
     {

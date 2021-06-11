@@ -23,7 +23,11 @@
                 </ul>
                 <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <?php if (\app\core\Application::$app->user) : ?>
+                            <a class="nav-link" href="/logout">Logout</a>
+                        <?php else: ?>
+                            <a class="nav-link" href="/login">Login</a>
+                        <?php endif ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
