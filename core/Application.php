@@ -10,6 +10,7 @@ class Application
     public Request $request;
     public Response $response;
     public Session $session;
+    public View $view;
     public ?Controller $controller = null;
     public Database $db;
     public ?DBModel $user = null;
@@ -23,6 +24,7 @@ class Application
         $this->request = new Request();
         $this->response = new Response();
         $this->session = new Session();
+        $this->view = new View();
         $this->db = new Database($config['db']);
         $this->userClass = $config['userClass'];
 
@@ -45,7 +47,7 @@ class Application
             echo $this->router->resolve();
         } catch (\Exception $ex) {
             $this->response->setStatusCode($ex->getCode());     
-            echo $this->router->renderView("_error",[
+            echo $this->view->renderView("_error",[
                 'exception' => $ex
             ]);
         }
