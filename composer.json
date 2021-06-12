@@ -8,7 +8,7 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^5.3",
-        "r567tw/phpmvc-core": "^0.0.3"
+        "r567tw/phpmvc-core": "^0.0.4"
     },
     "autoload": {
         "psr-4": {
