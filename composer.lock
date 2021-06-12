@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72307d941e43cb45251e9b2d8cd7be4c",
+    "content-hash": "4aeae51a49cece995dacfbe4c233c27b",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -140,6 +140,40 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "r567tw/phpmvc-core",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/r567tw/phpmvc-core.git",
+                "reference": "9829bec0620bf9d51cd4f7df7e06814b43f4d695"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/r567tw/phpmvc-core/zipball/9829bec0620bf9d51cd4f7df7e06814b43f4d695",
+                "reference": "9829bec0620bf9d51cd4f7df7e06814b43f4d695",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "r567tw\\phpmvc\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "r567tw",
+                    "email": "r567tw@gmail.com"
+                }
+            ],
+            "description": "php framework by practice",
+            "support": {
+                "issues": "https://github.com/r567tw/phpmvc-core/issues",
+                "source": "https://github.com/r567tw/phpmvc-core/tree/v0.0.3"
+            },
+            "time": "2021-06-12T06:55:04+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

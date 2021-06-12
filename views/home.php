@@ -1,6 +1,6 @@
 <?php
 
-use app\core\Application;
+use r567tw\phpmvc\Application;
 ?>
 <?php if (Application::$app->user) : ?>
     <h1>Welcom user <?= Application::$app->user->name ?></h1>

@@ -1,9 +1,9 @@
 <?php
 namespace app\controllers;
 
-use app\core\Application;
-use app\core\Controller;
-use app\core\Request;
+use r567tw\phpmvc\Application;
+use r567tw\phpmvc\Controller;
+use r567tw\phpmvc\Request;
 
 class MainController extends Controller
 {

@@ -21,7 +21,7 @@
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
-                <?php if (\app\core\Application::isGuest()) : ?>
+                <?php if (\r567tw\phpmvc\Application::isGuest()) : ?>
                     <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="/register">Register</a>

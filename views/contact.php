@@ -3,11 +3,11 @@
 <form action="/contact" method="post">
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <?php if (\app\core\Application::isGuest()) : ?>
+        <?php if (\r567tw\phpmvc\Application::isGuest()) : ?>
             <input type="text" class="form-control" name="name" id="name">
         <?php else : ?>
-            <input type="hidden" name="name" value="<?= \app\core\Application::$app->user->name ?>">
-            <input type="text" class="form-control" id="name" value="<?= \app\core\Application::$app->user->name ?>" disabled>
+            <input type="hidden" name="name" value="<?= \r567tw\phpmvc\Application::$app->user->name ?>">
+            <input type="text" class="form-control" id="name" value="<?= \r567tw\phpmvc\Application::$app->user->name ?>" disabled>
         <?php endif ?>
     </div>
     <div class="mb-3">

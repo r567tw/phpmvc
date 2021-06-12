@@ -1,6 +1,6 @@
 <?php
 
-use app\core\form\Form;
+use r567tw\phpmvc\form\Form;
 
 $form = new Form();
 ?>
@@ -9,4 +9,4 @@ $form = new Form();
 <?php echo $form->field($model, 'Email', 'email')->emailField() ?>
 <?php echo $form->field($model, 'Password', 'password')->passwordField() ?>
 <button type="submit" class="btn btn-primary">Login</button>
-<?= app\core\form\Form::end() ?>
+<?= r567tw\phpmvc\form\Form::end() ?>

@@ -4,7 +4,7 @@ class m001_init {
 
     public function up()
     {
-        $db = \app\core\Application::$app->db;
+        $db = \r567tw\phpmvc\Application::$app->db;
         $SQL = "CREATE TABLE users (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 email VARCHAR(255) NOT NULL,

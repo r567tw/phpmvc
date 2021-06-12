@@ -1,6 +1,6 @@
 <?php
 
-use app\core\form\Form;
+use r567tw\phpmvc\form\Form;
 
 $form = new Form();
 ?>
@@ -13,4 +13,4 @@ $form = new Form();
 <?php echo $form->field($model, 'Reapeat Password', 'password_confirm')->passwordField() ?>
 
 <button class="btn btn-success">Submit</button>
-<?= app\core\form\Form::end() ?>
+<?= r567tw\phpmvc\form\Form::end() ?>
