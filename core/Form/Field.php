@@ -3,9 +3,10 @@ namespace app\core\form;
 
 use app\core\Model;
 
-class Field
+class Field extends BaseField
 {
     const TYPE_TEXT = 'text';
+    const TYPE_TEXTAREA = 'textarea';
     const TYPE_PASSWORD = 'password';
     const TYPE_FILE = 'file';
     const TYPE_EMAIL = 'email';
@@ -23,25 +24,6 @@ class Field
         $this->type = self::TYPE_TEXT;
     }
 
-    public function __toString()
-    {
-        return sprintf(
-            '<div class="form-group">
-                <label>%s</label>
-                <input type="%s" class="form-control %s" name="%s" value="%s">
-                <div class="invalid-feedback">
-                    %s
-                </div>
-            </div>',
-            $this->label,
-            $this->type,
-            $this->model->hasError($this->attribute) ? 'is-invalid' : '',
-            $this->attribute,
-            $this->model->{$this->attribute},
-            $this->model->getFirstError($this->attribute)
-        );
-    }
-
     public function passwordField()
     {
         $this->type = self::TYPE_PASSWORD;
@@ -52,6 +34,17 @@ class Field
     {
         $this->type = self::TYPE_EMAIL;
         return $this;
+    }
+
+    public function renderInput()
+    {
+        return sprintf(
+            '<input type="%s" class="form-control%s" name="%s" value="%s">',
+            $this->type,
+            $this->model->hasError($this->attribute) ? ' is-invalid' : '',
+            $this->attribute,
+            $this->model->{$this->attribute},
+        );
     }
     
 }

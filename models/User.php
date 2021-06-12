@@ -2,9 +2,9 @@
 
 namespace app\models;
 
-use app\core\DBModel;
+use app\core\UserModel;
 
-class User extends DBModel
+class User extends UserModel
 {
 
     public string $name = '';
